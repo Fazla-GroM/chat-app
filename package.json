@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dayjs": "^1.11.1",
     "next": "12.1.5",
+    "ohmyfetch": "^0.4.15",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-query": "^3.38.0"
