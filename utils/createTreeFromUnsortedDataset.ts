@@ -1,4 +1,4 @@
-import { TTreeItem } from 'types/tree'
+import { TTreeItem } from 'types'
 
 /**
  * A helper method which creates tree structure when provided array with objects and compare keys.
