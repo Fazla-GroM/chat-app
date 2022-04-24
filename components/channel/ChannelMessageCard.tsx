@@ -1,6 +1,7 @@
 import { Box, Card, Flex, Text } from 'components/base'
 import { Avatar } from 'components/composed'
 import dayjs from 'dayjs'
+import { useInnerHtml } from 'hooks'
 import { useMemo } from 'react'
 import { TCommentTreeItem } from 'types'
 
@@ -17,6 +18,7 @@ const ChannelMessageCard = ({
     timesNested = 0,
     isFirstNestedItem = false
 }: IChannelMessageCardProps) => {
+    const textHtml = useInnerHtml(text)
     const formattedTime = useMemo(() => {
         if (!timestamp || !dayjs(timestamp).isValid()) {
             return undefined
@@ -53,12 +55,12 @@ const ChannelMessageCard = ({
                     ></Box>
                 )}
                 <Avatar imgSrc={author?.picture} alt={author?.name} shape="rounded" size="default" />
-                <Flex direction="column" gap="12">
+                <Flex direction="column" gap="12" css={{ flex: 1 }}>
                     <Card direction="column" gap="12" bgColor="chatMessage" hasBorder>
                         <Text color="primary" weight="semiBold" size="large">
                             {author?.name || 'Unknown user'}
                         </Text>
-                        {text && <Text size="large">{text}</Text>}
+                        {text && <Text size="large" {...textHtml}></Text>}
                     </Card>
                     <Flex gap="8">
                         {formattedTime && (

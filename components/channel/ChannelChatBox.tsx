@@ -24,7 +24,7 @@ const ChannelChatBox = ({ data, isLoading, children }: IChannelChatBoxProps) => 
                 borderRadius: '$8'
             }}
         >
-            <Box css={{ flex: '1' }}>
+            <Box css={{ flex: '1', display: 'flex', flexDirection: 'column', gap: '$48' }}>
                 {isLoading ? (
                     <Flex align="center" justify="center" css={{ height: '100%' }}>
                         <Loading />
@@ -32,7 +32,6 @@ const ChannelChatBox = ({ data, isLoading, children }: IChannelChatBoxProps) => 
                 ) : (
                     data?.map(item => cloneElement(children, { ...item, key: item?.groupTimestamp }))
                 )}
-                {/* {data?.map(item => cloneElement(children, { ...item, key: item?.groupTimestamp }))} */}
             </Box>
             <Box css={{ position: 'sticky', zIndex: 3, bottom: '$32', left: 0, width: '100%' }}>
                 <Card hasBorder hasShadow bgColor="default" padding="8">

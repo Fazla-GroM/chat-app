@@ -2,6 +2,14 @@ import type * as Stitches from '@stitches/react'
 import { createStitches } from '@stitches/react'
 
 const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } = createStitches({
+    media: {
+        bp1: '(min-width: 650px)',
+        bp2: '(min-width: 960px)',
+        bp3: '(min-width: 1280px)',
+        bp4: '(min-width: 650px)',
+        bp5: '(min-width: 1400px)',
+        bp6: '(min-width: 1920px)'
+    },
     theme: {
         fonts: {
             primary: 'Inter'
@@ -210,6 +218,9 @@ const injectGlobalStyles = globalCss({
         minHeight: '100vh',
         position: 'relative',
         isolation: 'isolate'
+    },
+    a: {
+        color: '$primary'
     }
 })
 

@@ -15,7 +15,17 @@ const HomePage = () => {
     }, [commentListQuery.data])
 
     return (
-        <Box css={{ py: '$80', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Box
+            css={{
+                '@bp1': {
+                    py: '$80'
+                },
+                height: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
+        >
             <ChannelChatBox data={processedCommentsData} isLoading={commentListQuery.isLoading}>
                 <ChannelMessageGroup>
                     <ChannelMessageCard />
