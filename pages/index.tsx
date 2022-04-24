@@ -1,3 +1,4 @@
+import { ChannelChatBox, ChannelMessageCard, ChannelMessageGroup, Flex, Box } from 'components'
 import { useGetList } from 'hooks'
 import { useMemo } from 'react'
 import { TCommentResponse } from 'types'
@@ -13,9 +14,25 @@ const HomePage = () => {
         return processCommentList(commentListQuery.data?.comments)
     }, [commentListQuery.data])
 
-    console.log('rerender', processedCommentsData)
-
-    return <h1>home page</h1>
+    return (
+        <Box
+            css={{
+                '@bp1': {
+                    py: '$80'
+                },
+                height: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
+        >
+            <ChannelChatBox data={processedCommentsData} isLoading={commentListQuery.isLoading}>
+                <ChannelMessageGroup>
+                    <ChannelMessageCard />
+                </ChannelMessageGroup>
+            </ChannelChatBox>
+        </Box>
+    )
 }
 
 export default HomePage

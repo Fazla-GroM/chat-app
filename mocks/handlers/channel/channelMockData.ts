@@ -5,7 +5,7 @@ const commentMockData = {
                 id: 1,
                 author: {
                     name: 'Ivana Paradzikovic',
-                    picture: 'img/ivana.jpg'
+                    picture: 'https://i.pravatar.cc/48?img=24'
                 },
                 text: 'Hello there, so I was wondering if you know how much MB is in a GB?',
                 timestamp: 414514740000
@@ -15,7 +15,7 @@ const commentMockData = {
                 parent_id: 1,
                 author: {
                     name: 'Zmaj Sipovski',
-                    picture: 'img/zmaj.jpg'
+                    picture: 'https://i.pravatar.cc/48?img=66'
                 },
                 text: 'Hey Ivana! Have you tried Googling that?',
                 timestamp: 414514860000
@@ -25,7 +25,7 @@ const commentMockData = {
                 parent_id: 1,
                 author: {
                     name: 'Ines Grah',
-                    picture: 'img/ines.jpg'
+                    picture: 'https://i.pravatar.cc/48?img=45'
                 },
                 text: 'Zmaj has a point, tho I’d say its about 1000MB in a GB.',
                 timestamp: 414516900000
@@ -34,9 +34,9 @@ const commentMockData = {
                 id: 4,
                 author: {
                     name: 'Pero Pipovski',
-                    picture: 'img/pero.jpg'
+                    picture: 'https://i.pravatar.cc/48?img=18'
                 },
-                text: 'Hey guys, here is a nice web for that complicated conversion. www.convertunits.com/from/MB/to/GB',
+                text: 'Hey guys, here is a nice web for that complicated conversion. <a href="https://www.convertunits.com/from/MB/to/GB" target="_blank" rel="noopener norefferer">www.convertunits.com/from/MB/to/GB</a>',
                 timestamp: 1626861080278
             }
         ]
