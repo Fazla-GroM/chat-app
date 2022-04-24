@@ -1,8 +1,18 @@
+# Chat App
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+This project supports [Volta](https://volta.sh/) and [nvm](https://github.com/nvm-sh/nvm) for node version management.
+Make sure to setup one of those tools before you start contributing on this project.
+
+Create a `.env` file in project root with this variables: ** DISCLAIMER \*\***
+This Should Be Secret :) \***\* DISCLAIMER \*\***
+`NEXT_PUBLIC_API_MOCKING="enabled"`
+`NEXT_PUBLIC_API_BASE_URL="https://www.fakebackend.com/api"`
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +22,44 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Every folder is structured by specificity and separation of concern. For example `utils` folder contains few generic methods but it also contains specific helpers for comment and data service which are then moved in a separate folder/file.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+-   `mocks`: It contains mocking data and mock client
+-   `components`: It contains all components used in project
+-   `hooks`: It contains all react hooks used in project
+-   `providers`: It contains all providers used accross the app
+-   `services`: It contains various services for app
+-   `pages`: It contains app pages
+-   `theme`: It contains project theme and tools for building component styles
+-   `types`: It contains all type definitions which are shared across the app
+-   `utils`: It contains all helper methods
 
-## Learn More
+## Technologies used
 
-To learn more about Next.js, take a look at the following resources:
+### UI
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   [Stitches](https://stitches.dev/) a `css-in-js` library
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Data
 
-## Deploy on Vercel
+-   [React query](https://react-query.tanstack.com/) a data synchronization tool
+-   [Ohmyfetch](https://github.com/unjs/ohmyfetch) a small wrapper around native fetch for better dev experience
+-   [DayJs](https://day.js.org/en/) a small footprint lib for handling dates
+-   [MSW](https://mswjs.io/) a service worker based lib for mock requests
+-   [XSS](https://github.com/leizongmin/js-xss): a library for sanitizing html
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contribution guide
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The main branch of this project is `main`
+
+All pull requests should be created from `main` branch.
+
+All pull requests should be `squash and merged` after approval as squash merging keeps your default branch histories clean and easy to follow without demanding any workflow changes on your team. Contributors to the topic branch work how they want in the topic branch, and the default branches keep a linear history through the use of squash merges.
+
+The source branch should be deleted after merge.
+
+This project uses [Commitlint](https://commitlint.js.org/#/) and [Husky](https://typicode.github.io/husky/#/) to create git hooks.
+
+This project follows [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) guidlines.
