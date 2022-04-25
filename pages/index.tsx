@@ -1,18 +1,18 @@
-import { ChannelChatBox, ChannelMessageCard, ChannelMessageGroup, Flex, Box } from 'components'
-import { useGetList } from 'hooks'
-import { useMemo } from 'react'
+import { ChannelChatBox, ChannelMessageCard, ChannelMessageGroup, Box } from 'components'
+import { useChannelWorker, useGetList } from 'hooks'
 import { TCommentResponse } from 'types'
-import { processCommentList } from 'utils'
 
 const HomePage = () => {
-    const commentListQuery = useGetList<TCommentResponse>({ resource: 'channel' })
+    const { proccessData, channelData, isProccessing } = useChannelWorker()
 
-    const processedCommentsData = useMemo(() => {
-        if (!commentListQuery.data?.comments) {
-            return []
+    const commentListQuery = useGetList<TCommentResponse>(
+        { resource: 'channel' },
+        {
+            onSuccess(data) {
+                proccessData(data.data.comments)
+            }
         }
-        return processCommentList(commentListQuery.data?.comments)
-    }, [commentListQuery.data])
+    )
 
     return (
         <Box
@@ -26,7 +26,10 @@ const HomePage = () => {
                 justifyContent: 'center'
             }}
         >
-            <ChannelChatBox data={processedCommentsData} isLoading={commentListQuery.isLoading}>
+            <ChannelChatBox
+                data={channelData}
+                isLoading={(!channelData.length && isProccessing) || commentListQuery.isLoading}
+            >
                 <ChannelMessageGroup>
                     <ChannelMessageCard />
                 </ChannelMessageGroup>
