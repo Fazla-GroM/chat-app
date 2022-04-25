@@ -35,6 +35,7 @@ Every folder is structured by specificity and separation of concern. For example
 -   `theme`: It contains project theme and tools for building component styles
 -   `types`: It contains all type definitions which are shared across the app
 -   `utils`: It contains all helper methods
+-   `workers`: It contains service worker modules.
 
 ## Technologies used
 
