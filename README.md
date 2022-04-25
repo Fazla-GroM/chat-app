@@ -7,17 +7,35 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This project supports [Volta](https://volta.sh/) and [nvm](https://github.com/nvm-sh/nvm) for node version management.
 Make sure to setup one of those tools before you start contributing on this project.
 
+`NPM` is used as package manager.
+
 Create a `.env` file in project root with this variables: ** DISCLAIMER \*\***
 This Should Be Secret :) \***\* DISCLAIMER \*\***
 `NEXT_PUBLIC_API_MOCKING="enabled"`
 `NEXT_PUBLIC_API_BASE_URL="https://www.fakebackend.com/api"`
 
+Install dependencies:
+
+```bash
+npm install
+```
+
 Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
+```
+
+Build app:
+
+```bash
+npm run build
+```
+
+Serve app:
+
+```bash
+npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
